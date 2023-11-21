@@ -120,6 +120,9 @@ function refreshAwsCredentials() {
 
     await page.close();
 
+    // Sleep for 1 second for credential-provider-sso to retrieve the new credentials
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const { accessKeyId, secretAccessKey, sessionToken } = await fromSSO({
       profile,
     })();
