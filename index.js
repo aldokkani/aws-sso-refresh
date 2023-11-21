@@ -11,7 +11,8 @@ program
     'Refresh every [frequency][unit] e.g. 5s, 1 minute, 2h',
     '55m'
   )
-  .option('-p, --profile <profile>', 'AWS profile name', 'default')
+  .option('--profile-sso <profile-sso>', 'AWS SSO profile name', 'default')
+  .option('--profile-credentials <profile-credentials>', 'AWS credentials file profile name', 'default')
   .option('--headless', 'Start in headless mode', false)
   .option(
     '-t, --timeout <timeout>',
@@ -31,7 +32,7 @@ program
 
 program.parse();
 
-const { refreshEvery, profile, userDataDir, awsCredentialsFile } =
+const { refreshEvery, profileSso, profileCredentials, userDataDir, awsCredentialsFile } =
   program.opts();
 let { headless, timeout } = program.opts();
 timeout = timeout * 60000;
@@ -83,7 +84,7 @@ function refreshAwsCredentials() {
     'login',
     '--no-browser',
     '--profile',
-    profile,
+    profileSso,
   ]);
 
   child.stdout.on('data', async (data) => {
@@ -124,10 +125,10 @@ function refreshAwsCredentials() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const { accessKeyId, secretAccessKey, sessionToken } = await fromSSO({
-      profile,
+      profile: profileSso,
     })();
 
-    const config = `[${profile}]
+    const config = `[${profileCredentials}]
   aws_access_key_id = ${accessKeyId}
   aws_secret_access_key = ${secretAccessKey}
   aws_session_token = ${sessionToken}
