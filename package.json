@@ -2,9 +2,14 @@
   "name": "aws-sso-refresh",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "help": "node index.js --help",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
