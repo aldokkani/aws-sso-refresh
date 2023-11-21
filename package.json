@@ -1,0 +1,25 @@
+{
+  "name": "aws-sso-refresh",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "sso",
+    "token",
+    "credentials",
+    "headless"
+  ],
+  "author": "aldokkani",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/credential-provider-sso": "^3.451.0",
+    "commander": "^11.1.0",
+    "cron": "^3.1.6",
+    "puppeteer": "^21.5.2"
+  }
+}
