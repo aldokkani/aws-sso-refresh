@@ -26,5 +26,10 @@
     "commander": "^11.1.0",
     "cron": "^3.1.6",
     "puppeteer": "^21.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.0"
   }
 }
