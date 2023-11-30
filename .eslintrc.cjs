@@ -28,5 +28,6 @@ module.exports = {
     ],
     'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
     'import/extensions': 'off',
+    'import/prefer-default-export': 'off',
   },
 };
