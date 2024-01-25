@@ -26,7 +26,7 @@ module.exports = {
         consistent: true,
       },
     ],
-    'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
+    'no-console': ['error', { allow: ['warn', 'error', 'info', 'debug'] }],
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
   },
